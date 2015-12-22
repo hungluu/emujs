@@ -1,0 +1,38 @@
+{
+  "name": "emujs",
+  "description": "A responsiveness testing tool on browsers",
+  "main": "dist/emu.js",
+  "authors": [
+    "Zudd"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "emu",
+    "emujs",
+    "emulate",
+    "javascript",
+    "jquery",
+    "mobile",
+    "browser",
+    "bootstrap",
+    "foundation",
+    "browser",
+    "design",
+    "screenshot",
+    "responsive",
+    "test"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "https://github.com/zudd/emujs#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "demo"
+  ]
+}
