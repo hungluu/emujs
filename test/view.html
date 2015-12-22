@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../node_modules/mocha/mocha.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../src/emu.css" />
+
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/mocha/mocha.js"></script>
+	<script src="../node_modules/chai/chai.js"></script>
+</head>
+<body>
+<div id="mocha"></div>
+<script src="../src/assets/center.js"></script>
+<script src="../src/assets/scale.js"></script>
+<script src="../src/assets/container.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="../src/assets/view.js"></script>
+<script type="text/javascript">
+	if('initMochaPhantomJS' in window){
+		initMochaPhantomJS();
+	}
+
+	mocha.setup('bdd');
+	expect = chai.expect;
+
+	(function($){
+		$(document).ready(function(){
+			describe('A body', function(){
+				before(view);
+
+				it('should be created', function(){
+					$(container()).hide();
+					expect($('div.emu.body').length).to.gt(0);
+				})
+
+				it('should contain an iframe', function(){
+					expect($('div.emu.body').find('iframe').length).to.gt(0);
+				});
+
+				it('should contain an utils bar', function(){
+					expect($('div.emu.body').find('div.utils').length).to.gt(0);
+				});
+
+				it('should have an utils#rotate button', function(done){
+					$('div.emu.body').find('div.utils').find('button').each(function(index, el) {
+						if(el.innerHTML === 'rotate')
+							done();
+					});
+				});
+			});
+
+			describe('A body with html2canvas', function(){
+				it('should keep space for screenshot div', function(){
+					expect($('div.emu.body').css('right')).to.equal('215px');
+				});
+
+				it('should have utils#screenshot button', function(done){
+					$('div.emu.body').find('div.utils').find('button').each(function(index, el) {
+						if(el.innerHTML === 'screenshot')
+							done();
+					});
+				});
+			});
+
+			mocha.run();
+		});
+	})(jQuery);
+</script>
+</body>
+</html>

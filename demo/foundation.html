@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+	<meta charset="utf-8">
+	<!-- If you delete this meta tag World War Z will become a reality -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Foundation 5</title>
+
+	<!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/css/foundation.min.css">
+	<link href="../dist/emu.css" rel="stylesheet">
+
+	<!-- If you are using the gem version, you need this only -->
+	<style type="text/css">
+	.event {padding: 1rem 1rem 1rem 0; display: table; } .event-date {width: 6rem; margin: 0 auto 1rem; display: table-cell; width: auto; } .event-date .event-month {margin: 0; background: #eee; padding: 0.5rem 2rem; text-align: center; } .event-date .event-day {margin: 0; border: 1px solid #eee; padding: 0 2rem; text-align: center; font-size: 2rem; } .event-desc {padding: 0 0 0 1rem; text-align: left; display: table-cell; vertical-align: top; } .event-desc .event-desc-header {margin: 0 0 0.5rem 0; padding: 0; } .event-desc .event-desc-detail {margin: 0 0 0.25rem; padding: 0; } .event-desc .event-desc-time {font-weight: bold; } .event-desc .rsvp.button {padding-top: 0.5rem; padding-bottom: 0.5rem; margin: 0; }
+	</style>
+</head>
+<body>
+
+	<!-- body content here -->
+	<div class="row"> <div class="small-9 columns small-centered"> <article class="event"> <div class="event-date"> <p class="event-month">Sept</p> <p class="event-day">18</p> </div> <div class="event-desc"> <h4 class="event-desc-header">Day in the Life of Foundation for Apps</h4> <p class="event-desc-detail"><span class="event-desc-time"></span>BDConf - Altlanta</p> <a href="http://bdconf.com/speakers/brandon-arnold/" class="rsvp button">RSVP &amp; Details</a> </div> </article> <hr> <article class="event"> <div class="event-date"> <p class="event-month">Oct</p> <p class="event-day">21</p> </div> <div class="event-desc"> <h4 class="event-desc-header">Day in the Life of Foundation for Apps</h4> <p class="event-desc-detail"><span class="event-desc-time"></span>BDConf - Washington, DC</p> <a href="http://bdconf.com/speakers/brandon-arnold/" class="rsvp button">RSVP &amp; Details</a> </div> </article> </div> </div>
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.5/js/foundation.min.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<script src="../dist/emu.js"></script>
+	<script type="text/javascript">
+		emu();
+	</script>
+</body>
+</html>

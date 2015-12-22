@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Center</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../node_modules/mocha/mocha.css" rel="stylesheet" />
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/mocha/mocha.js"></script>
+	<script src="../node_modules/chai/chai.js"></script>
+	<style type="text/css">
+	div#center{
+		background: #0ea5d4;
+		margin: auto auto;
+		height: 200px;
+		width: 300px;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	</style>
+</head>
+<body>
+<div id="mocha"></div>
+<div id="center"></div>
+<script src="../src/assets/center.js"></script>
+<script src="../src/assets/scale.js"></script>
+<script type="text/javascript">
+	if('initMochaPhantomJS' in window){
+		initMochaPhantomJS();
+	}
+
+	mocha.setup('bdd');
+	expect = chai.expect;
+
+	(function($){
+		$(document).ready(function(){
+			//$('#zoom').css('zoom', '0.5');
+			//console.log($('#zoom').height());
+
+			describe('div#center', function(){
+				it('should have original position (0, 0)', function(){
+					var offset = $('#center').offset();
+					expect(offset.top).to.equal(0);
+					expect(offset.left).to.equal(0);
+				});
+
+				it('can be centered', function(){
+					var test = $('#center');
+					center(test);
+					var offset = test.offset();
+					expect(offset.top).to.equal(Math.max(0, (($(window).height() - test.outerHeight()) / 2) + $(window).scrollTop()));
+					expect(offset.left).to.equal(Math.max(0, (($(window).width() - test.outerWidth()) / 2) + $(window).scrollLeft()));
+				});
+
+				it('can be centered after scaled', function(){
+					var test = $('#center');
+					center(test);
+
+					// position after centered (without scaling 0.5)
+					var offset1 = test.offset();
+					// calculate expected position after scaled 0.5 and centered
+					var expectedOffset = {
+						top : offset1.top + test.outerHeight() / 4,
+						left : offset1.left + test.outerWidth() / 4
+					}
+
+					scale(test, 0.5);
+					center(test);
+
+					// position after scaled 0.5 and centered
+					var offset2 = test.offset();
+					expect(offset2.top).to.equal(expectedOffset.top);
+					expect(offset2.left).to.equal(expectedOffset.left);
+				});
+			});
+
+			mocha.run();
+		});
+	})(jQuery);
+</script>
+</body>
+</html>

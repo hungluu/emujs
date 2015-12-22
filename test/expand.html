@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emu</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../node_modules/mocha/mocha.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../src/emu.css" />
+
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/mocha/mocha.js"></script>
+	<script src="../node_modules/chai/chai.js"></script>
+</head>
+<body>
+<div id="mocha"></div>
+<script src="../src/assets/mbox.js"></script>
+<script src="../src/assets/container.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script src="../src/assets/expand.js"></script>
+<script type="text/javascript">
+	if('initMochaPhantomJS' in window){
+		initMochaPhantomJS();
+	}
+
+	mocha.setup('bdd');
+	expect = chai.expect;
+
+	(function($){
+		$(document).ready(function(){
+			describe('A expand bar', function(){
+				before(expand);
+
+				it('should be created', function(){
+					$(container()).hide();
+					expect($('div.emu.expand').length).to.gt(0);
+				});
+
+				it('should contain an utils bar', function(){
+					expect($('div.emu.expand').find('div.utils').length).to.gt(0);
+				});
+
+				it('should have an utils#Screenshots button', function(done){
+					$('div.emu.expand').find('div.utils').find('span').each(function(index, el) {
+						if(el.innerHTML === 'Screenshots')
+							done();
+					});
+				});
+
+				it('should have a screenshots container', function(){
+					expect($('div.emu.expand').find('div.screenshots').length).to.gt(0);
+				});
+			});
+
+			describe('Expand.screenshots', function(){
+				before(function(){
+					expand.addScreenShot('');
+				});
+
+				it('can be added screenshots', function(){
+					expect($('div.emu.expand').find('div.screenshots').find('img').length).to.gt(0);
+				});
+			});
+
+			mocha.run();
+		});
+	})(jQuery);
+</script>
+</body>
+</html>

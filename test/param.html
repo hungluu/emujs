@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Params</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../node_modules/mocha/mocha.css" rel="stylesheet" />
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/mocha/mocha.js"></script>
+	<script src="../node_modules/chai/chai.js"></script>
+</head>
+<body>
+<div id="mocha"></div>
+<script src="../src/assets/param.js"></script>
+<script type="text/javascript">
+	if('initMochaPhantomJS' in window){
+		initMochaPhantomJS();
+	}
+
+	if(!window.PhantomJS && window.location.href.indexOf('?') === -1)
+		window.location.href = '?i=main&mode=front&sid=de8d49b78a85a322c4155015fdce22c4&enc=+Hello%20&empty';
+
+	mocha.setup('bdd');
+	expect = chai.expect;
+
+	(function($){
+		$(document).ready(function(){
+			describe('params', function(){
+				it('should be an object', function(){
+					expect(param()).to.be.an('object');
+				});
+
+				it('should contain 5 keys', function(){
+					expect(param()).to.include.keys('enc', 'i', 'mode', 'sid', 'empty');
+				});
+
+				it('should contain right values for keys', function(){
+					expect(param('enc')).to.equal(' Hello ');
+					expect(param('i')).to.equal('main');
+					expect(param('mode')).to.equal('front');
+					expect(param('sid')).to.equal('de8d49b78a85a322c4155015fdce22c4');
+					expect(param('empty')).to.be.empty;
+				});
+			});
+
+			mocha.run();
+		});
+	})(jQuery);
+</script>
+</body>
+</html>
