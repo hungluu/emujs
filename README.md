@@ -17,12 +17,12 @@ What is it?
 ```html
 <html>
 	...
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/emujs/1.0.0/emu.js">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/emujs/1.0.1/emu.js">
 	</head>
 	<body>
 		...
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="//cdn.jsdelivr.net/emujs/1.0.0/emu.js"></script>
+		<script src="//cdn.jsdelivr.net/emujs/1.0.1/emu.js"></script>
 		<script>emu();</script>
 	</body>
 </html>
