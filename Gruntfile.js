@@ -1,13 +1,10 @@
 var buildList = function(files){
 	var test = [
-		'scale',
-		'center',
-		'mbox',
-		'screenshot',
-		'container',
-		'bar',
+		'msg',
+		'printscr',
+		'ctrl',
 		'view',
-		'expand'
+		'btm'
 	];
 
 	var result = [];
@@ -17,14 +14,14 @@ var buildList = function(files){
 			result.push('http://localhost:8080/test/' + test[i].replace('/', '.') + '.html');
 		}
 
-		result.unshift('http://localhost:8080/test/param.html?i=main&mode=front&sid=de8d49b78a85a322c4155015fdce22c4&enc=+Hello%20&empty');
+		result.unshift('http://localhost:8080/test/utils.html?i=main&mode=front&sid=de8d49b78a85a322c4155015fdce22c4&enc=+Hello%20&empty');
 	}
 	else{
 		for(var i = 0, l = test.length; i < l; i++){
 			result.push('src/' + test[i] + '.js');
 		}
 
-		result.unshift('src/param.js');
+		result.unshift('js/assets/utils.js');
 	}
 
 	return result;
@@ -79,10 +76,9 @@ module.exports = function(grunt) {
 					"eqeqeq" : true,
 					"undef" : true,
 					"mocha" : true,
-					//"jquery" : true,
+					"jquery" : true,
 					"globals" : {
-						'html2canvas' : true,
-						'$' : true
+						'html2canvas' : true
 					},
 					"browser" : true,
 					"bitwise" : true,
@@ -91,7 +87,7 @@ module.exports = function(grunt) {
 					"noarg" : true,
 					"undef" : true,
 					"quotmark" : true,
-					//"strict" : true,
+					// "strict" : true,
 					"unused" : "strict",
 					reporter : require('jshint-stylish')
 				}
@@ -105,10 +101,9 @@ module.exports = function(grunt) {
 					"eqeqeq" : true,
 					"undef" : true,
 					"mocha" : true,
-					//"jquery" : true,
+					"jquery" : true,
 					"globals" : {
-						'html2canvas' : true,
-						'$' : true
+						'html2canvas' : true
 					},
 					"browser" : true,
 					"bitwise" : true,
@@ -132,7 +127,7 @@ module.exports = function(grunt) {
 				},
 				files: [{
 					cwd: '.',
-					src: 'src/emu.js',
+					src: 'js/emu.js',
 					dest: 'dist/emu.js',
 				}],
 			},
@@ -144,10 +139,20 @@ module.exports = function(grunt) {
 			},
 			target: {
 				files: {
-					'dist/emu.css': ['src/emu.css']
+					'dist/emu.css': ['dist/emu.css']
 				}
 			}
-		}
+		},
+		sass: {															// Task
+				dist: {														// Target
+					options: {											 // Target options
+						style: 'expanded'
+					},
+					files: {												 // Dictionary of files
+						'dist/emu.css': 'css/emu.scss'		 // 'destination': 'source'
+					}
+				}
+			}
 	});
 
 	// Load plugin
@@ -156,6 +161,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-mocha');
 	grunt.loadNpmTasks('grunt-includes');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 
 	// Task to run tests
 	grunt.registerTask('local', ['connect:local:keepalive']);
@@ -181,6 +187,18 @@ module.exports = function(grunt) {
 			// Is it a directory?
 			if (stats.isFile()) {
 				fs.unlinkSync('dist/emu.css');
+			}
+		}
+		catch (e) {
+		}
+
+		try {
+			// Query the entry
+			stats = fs.lstatSync('dist/emu.css.map');
+
+			// Is it a directory?
+			if (stats.isFile()) {
+				fs.unlinkSync('dist/emu.css.map');
 			}
 		}
 		catch (e) {
@@ -243,9 +261,9 @@ module.exports = function(grunt) {
 		});
 	});
 
-	grunt.registerTask('test', ['resetDist', 'connect:ci', 'jshint:assets', 'mocha:assets', 'includes:js', 'jshint:dist', 'mocha:dist']);
+	grunt.registerTask('test', ['resetDist', 'connect:ci', 'jshint:assets', 'mocha:assets', 'includes:js', 'jshint:dist', 'sass', 'mocha:dist', 'resetDist']);
 
-	grunt.registerTask('dist', ['resetDist', 'cssmin', 'includes:js', 'jshint:dist', 'connect:ci', 'mocha:dist', 'compress']);
+	grunt.registerTask('dist', ['resetDist', 'sass', 'cssmin', 'includes:js', 'jshint:dist', 'connect:ci', 'mocha:dist', 'compress']);
 
-	grunt.registerTask('build', ['test', 'cssmin', 'compress']);
+	grunt.registerTask('build', ['test', 'includes:js', 'sass', 'cssmin', 'compress']);
 };

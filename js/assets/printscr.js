@@ -1,4 +1,5 @@
-var screenshot = (function(mbox){ // jshint ignore:line
+/** Simulate print screen function */
+var printscr = (function(msg){ // jshint ignore:line
 	return function(element){
 		if(typeof html2canvas !== 'undefined'){
 			html2canvas(element, {
@@ -14,10 +15,16 @@ var screenshot = (function(mbox){ // jshint ignore:line
 
 					ctx.drawImage(canvas, 0, 0);
 
-					mbox.send('screenshot', resultCanvas.toDataURL());
+					msg.push('screenshot', {
+						src : resultCanvas.toDataURL(),
+						size: {
+							width : element.offsetWidth,
+							height: element.offsetHeight
+						}
+					});
 				}
 			});
 		}
 	};
-})(mbox); // jshint ignore:line
+})(msg); // jshint ignore:line
 //

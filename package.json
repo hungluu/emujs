@@ -1,13 +1,11 @@
 {
   "name": "emujs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A responsiveness testing tool on browsers",
   "main": "dist/emu.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
-    "test": "npm test"
+    "test": "grunt test",
+    "build": "grunt build"
   },
   "repository": {
     "type": "git",
@@ -41,6 +39,7 @@
     "grunt-contrib-connect": "^0.11.2",
     "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-sass": "^0.9.2",
     "grunt-includes": "^0.5.1",
     "grunt-mocha": "^0.4.15",
     "jshint-stylish": "^2.1.0",

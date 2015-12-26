@@ -1,0 +1,89 @@
+@mixin bgdev($color) {
+	@if($production==false) {
+		background: $color;
+	}
+}
+
+// divide to 2 divs and auto-width-filling right layer
+@mixin left {
+	float: left;
+}
+
+@mixin right {
+	float: right;
+}
+
+// right
+@mixin autofill {
+	overflow: hidden;
+}
+
+@mixin fill($padding){
+	top: $padding;
+	left: $padding;
+	width: $padding;
+	height: $padding;
+}
+
+// overflow only-y
+@mixin vscroll {
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+// overflow only-x
+@mixin hscroll {
+	overflow: auto;
+	overflow-y: hidden;
+}
+
+@mixin fillwidth {
+	left: 0;
+	right: 0;
+}
+
+@mixin fillheight {
+	top: 0;
+	bottom: 0;
+}
+
+@mixin width($w){
+	width : $w;
+	min-width : $w;
+	max-width : $w;
+}
+
+@mixin height($h){
+	height : $h;
+	min-height : $h;
+	max-height : $h;
+}
+
+@mixin fullwidth {
+	@include width(100%);
+}
+
+@mixin fullheight {
+	@include height(100%);
+}
+
+@mixin hand {
+	cursor: pointer;
+	cursor: hand;
+}
+
+@mixin center {
+	margin: 0 auto;
+}
+
+@mixin radius($r){
+	-webkit-border-radius: $r;
+	-moz-border-radius: $r;
+	border-radius: $r;
+}
+
+@mixin inlineblock{
+	display : inline-block;
+	*zoom   : 1;
+    *display: inline;
+}
