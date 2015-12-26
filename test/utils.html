@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Utils</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../node_modules/mocha/mocha.css" rel="stylesheet" />
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="../node_modules/mocha/mocha.js"></script>
+	<script src="../node_modules/chai/chai.js"></script>
+	<style type="text/css">
+	div#scale{
+		background: #0ea5d4;
+		margin: auto auto;
+		height: 200px;
+		width: 300px;
+		top: 0;
+		position: absolute;
+		top: 30%;
+		right: 30%;
+	}
+
+	div#zoom{
+		background: green;
+		margin: auto auto;
+		height: 200px;
+		width: 300px;
+		top: 0;
+		position: absolute;
+		top: 40%;
+		right: 40%;
+	}
+
+	div#center{
+		background: #0ea5d4;
+		margin: auto auto;
+		height: 200px;
+		width: 300px;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	</style>
+</head>
+<body>
+<div id="mocha"></div>
+<div id="scale"></div>
+<div id="zoom"></div>
+<div id="center"></div>
+<script src="../js/assets/utils.js"></script>
+<script src="test/setup.js"></script>
+<script src="test/utils.js"></script>
+</body>
+</html>

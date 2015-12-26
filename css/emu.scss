@@ -1,0 +1,222 @@
+@import 'assets/variables';
+@import 'assets/lib';
+
+@mixin reset {
+	// try to reset to keep the same styles accross sites
+	// ...
+	font-size : 14px !important;
+
+	* {
+		color: $color;
+		margin: none;
+		padding: none;
+	}
+}
+
+// base layer div#emu
+#emu {
+	position: fixed;
+	background: #fff;
+	z-index: $zindex;
+	padding: 10px;
+	@include fillwidth;
+	@include fillheight;
+	@include hscroll;
+	@include reset;
+
+	div.layer {
+		div.utils {
+			height: $ubi-height;
+			@include bgdev(#99BAA4);
+			text-align: center;
+
+			input{
+				@include width(95%);
+				@include height(80%);
+				color : $ctrl-bgcolor;
+				padding: 0 !important;
+				margin : 0 !important;
+			}
+		}
+	}
+	div.top.layer {
+		height: $top-height;
+		position: relative;
+	}
+	div.top.layer.ctrl {
+		width: 20%;
+		margin: 0 5px 5px 0;
+		background: $ctrl-bgcolor;
+		@include left;
+		@include vscroll;
+		div.utils{
+			background : #FFF;
+			border: inset 1px $ctrl-bgcolor;
+		}
+		div.opts {
+			// same background as ctrl
+			// ...
+			span {
+				display: block;
+				border-style: inset;
+				border-color: $btn-bgcolor;
+				border-bottom-color: #FFF;
+				padding: $padding;
+				border-width: 0 10px 1px 0;
+				@include fillwidth;
+				@include hand;
+			}
+			span.active {
+				border-right-color: $active-bcolor;
+				color: #FFF;
+			}
+			span:hover {
+				color: #FFF;
+			}
+		}
+	}
+	div.top.layer.view {
+		margin: 0 0 5px 0;
+		text-align: center;
+		background: $view-bgcolor;
+		@include autofill;
+
+		iframe{
+			// center by js
+			@include center;
+			width : 100px;
+			border : none;
+			background : #FFF;
+		}
+	}
+	div.btm.layer {
+		height: $btm-height;
+		@include bgdev(#F2B767);
+		overflow: hidden;
+		background : $cons-bgcolor;
+		@include width(100%);
+		* {
+			color : $cons-color;
+		}
+		div.utils{
+			background : #222;
+			height : $ubi-height + 10px;
+		}
+		span, a{
+			@include hand;
+			float : left;
+			padding: 0 10px;
+			line-height : $ubi-height + 10px;
+			color : $color;
+
+			span{
+				background : #B11623;
+				padding : 2px 2px;
+				margin : 5px;
+				line-height : 100%;
+			}
+		}
+		span:hover, a:hover{
+			color : $hcolor;
+		}
+		span.active{
+			color : $hcolor;
+			background : $cons-bgcolor;
+		}
+		div.logs{
+			padding : $padding;
+			height : $cons-height;
+			@include vscroll;
+
+			p{
+				background : #2F2F2F;
+				margin : 0;
+				border : 0;
+				padding: 1px 3px;
+				font-size: 12px;
+
+				i{
+					float   : right;
+					display : inline;
+					padding : 0;
+					margin  : 0;
+					font-size: 12px;
+					color   : $color;
+				}
+			}
+		}
+		div.images{
+			@include bgdev(#069);
+			margin : $padding;
+			height : $cons-height;
+
+			ul{
+				list-style-type: none;
+				@include height(100%);
+				padding: 0;
+				margin: 0;
+				white-space: nowrap;
+				@include hscroll;
+
+				@include bgdev(#000);
+			}
+			li{
+				height : 95%;
+				border : solid 1px #333;
+				background-size:cover;
+
+				@include inlineblock;
+				position : relative;
+
+				span, a{
+					position: relative;
+					float: left;
+					background: $btn-bgcolor;
+					line-height: $ubi-height;
+				}
+			}
+		}
+	}
+	input, button{
+		border: none;
+		padding: 0;
+		margin : 0;
+	}
+	input:focus, button:focus{
+		outline: none;
+	}
+	button{
+		@include hand;
+		@include radius(0);
+
+		background: $btn-bgcolor;
+		color : $hcolor;
+		float: right;
+		padding: $padding;
+	}
+	button:hover{
+		background : $btn-hbgcolor;
+	}
+}
+
+button.emu{
+	z-index: $zindex + 1;
+	background: $btn-bgcolor;
+	color: $color;
+	position: fixed;
+	bottom: 0;
+	right: 5px;
+	border: none;
+	padding: 5px 10px;
+
+	@include hand;
+}
+
+button.emu:hover{
+	color : $hcolor;
+	background: $btn-hbgcolor;
+}
+
+button.emu:focus{
+	outline: none;
+}

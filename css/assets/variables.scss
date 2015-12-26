@@ -1,0 +1,35 @@
+// global color
+$color : #D0D0D0;
+// global hover color
+$hcolor : #FFF;
+// global z-index
+$zindex : 999998;
+// top layers' height
+$top-height: 70%;
+// utility bar, buttons, inputs' height
+$ubi-height: 20px;
+// console height
+$cons-height: 80%;
+// bottom layers' height
+$btm-height: 30%;
+// ctrl bg color
+$ctrl-bgcolor : #50596C;
+// view bg color
+$view-bgcolor : #2F2D3E;
+// cons bg color
+$cons-bgcolor : #333;
+// cons text color
+$cons-color : #F8D9A0;
+// buttons bg color
+$btn-bgcolor : #42A8BD;
+// buttons hover bg color
+$btn-hbgcolor : #5F619A;
+// .active border color
+$active-bcolor: #D4EEB3;
+// .active text color
+$active-color : #FFF;
+// common padding size
+$padding : 5px;
+
+// background in dev environment
+$production: true;

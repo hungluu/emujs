@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Expand</title>
+	<title>Msg</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="../node_modules/mocha/mocha.css" rel="stylesheet" />
-	<link rel="stylesheet" href="../src/emu.css" />
-
+	<link rel="stylesheet" type="text/css" href="../dist/emu.css">
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="../node_modules/mocha/mocha.js"></script>
 	<script src="../node_modules/chai/chai.js"></script>
@@ -15,52 +14,8 @@
 <body>
 <div id="mocha"></div>
 <script src="../dist/emu.js"></script>
-<script type="text/javascript">
-	if('initMochaPhantomJS' in window){
-		initMochaPhantomJS();
-	}
-
-	mocha.setup('bdd');
-	expect = chai.expect;
-
-	emu();
-
-	(function($){
-		$(document).ready(function(){
-			describe('Button#emu', function(){
-				it('should be visible', function(){
-					expect($('button.emu.open').is(':visible')).to.be.true;
-				});
-			});
-
-			describe('All panels', function(){
-				it('should be hidden', function(){
-					expect($('div.emu').is(':visible')).to.be.false;
-				});
-
-				it('must be shown when button#emu is clicked', function(){
-					$('button.emu.open').trigger('click');
-					expect($('div.emu').is(':visible')).to.be.true;
-				});
-
-				it('must be hidden when button#emu is clicked again', function(done){
-					$('button.emu.open').trigger('click');
-					var count = 0;
-					var inl = setInterval(function(){
-						if(count > 1){
-							expect($('div.emu').is(':visible')).to.be.false;
-							done();
-							clearInterval(inl);
-						}
-
-						count++;
-					}, 500);
-				});
-			});
-
-			mocha.run();
-		});
-	})(jQuery);
-</script>
+<script>emu();</script>
+<script src="test/setup.js"></script>
+<script src="test/emu.js"></script>
 </body>
 </html>
