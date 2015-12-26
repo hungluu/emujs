@@ -10,19 +10,25 @@ What is it?
 - Bundled with an extendable list of common mobile devices.
 - Screenshots
 
-[Demo](//zudd.github.io/emujs) - [changelog](//github.com/zudd/emujs/blob/master/HISTORY.md) - [contributors](//github.com/zudd/emujs/network)
+Demo :
+- [Bootstrap 3](//zudd.github.io/emujs)
+- [Foundation](//zudd.github.io/emujs/foundation.html)
+
+Others :
+- [Changelog](//github.com/zudd/emujs/blob/master/HISTORY.md)
+- [Contributors](//github.com/zudd/emujs/network)
 
 ## Simple usage
 
 ```html
 <html>
 	...
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/emujs/1.0.2/emu.css">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/emujs/1.0.3/emu.css">
 	</head>
 	<body>
 		...
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="//cdn.jsdelivr.net/emujs/1.0.2/emu.js"></script>
+		<script src="//cdn.jsdelivr.net/emujs/1.0.3/emu.js"></script>
 		<script>emu();</script>
 	</body>
 </html>
