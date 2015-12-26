@@ -1,6 +1,6 @@
 {
 	"name": "emujs",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A responsiveness testing tool on browsers",
 	"main": "dist/emu.js",
 	"scripts": {
