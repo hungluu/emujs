@@ -1,6 +1,6 @@
 # EmuJS
 
-[![Build Status](https://travis-ci.org/zudd/emujs.svg?branch=master)](https://travis-ci.org/zudd/emujs)
+[![Build Status](https://travis-ci.org/hungluu/emujs.svg?branch=master)](https://travis-ci.org/hungluu/emujs)
 
 A responsiveness testing tool on browsers
 
@@ -11,12 +11,12 @@ What is it?
 - Screenshots
 
 Demo :
-- [Bootstrap 3](//zudd.github.io/emujs)
-- [Foundation](//zudd.github.io/emujs/foundation.html)
+- [Bootstrap 3](//hungluu.github.io/emujs)
+- [Foundation](//hungluu.github.io/emujs/foundation.html)
 
 Others :
-- [Changelog](//github.com/zudd/emujs/blob/master/HISTORY.md)
-- [Contributors](//github.com/zudd/emujs/network)
+- [Changelog](//github.com/hungluu/emujs/blob/master/HISTORY.md)
+- [Contributors](//github.com/hungluu/emujs/network)
 
 ## Simple usage
 
@@ -36,7 +36,7 @@ Others :
 
 ## Install
 
-1. Download [here](//github.com/zudd/emujs/archive/master.zip) or
+1. Download [here](//github.com/hungluu/emujs/archive/master.zip) or
 
 ```shell
 // with bower
@@ -73,12 +73,12 @@ Everyone is welcomed :)
 Here is some steps :
 
  1. Make sure you have a [Github](//github.com) account and have installed [npm](//npmjs.com)
- 2. Fork this [repo](//github.com/zudd/emujs), then clone with ```git@github.com:your-user-name/emujs.git```
+ 2. Fork this [repo](//github.com/hungluu/emujs), then clone with ```git@github.com:your-user-name/emujs.git```
  3. Run ```npm install``` to install all dependencies, if you haven't installed grunt-cli ```npm install -g grunt-cli```
  4. Run ```grunt test``` to be sure everything is working
  5. Make your changes ( optional write an additional test file if you'are adding something and the old test files cannot cover )
  6. Run ```grunt test``` again to make sure everything is working
- 7. Push to your fork, create a [pull request](//github.com/zudd/emujs/compare) and write a good commit message.
+ 7. Push to your fork, create a [pull request](//github.com/hungluu/emujs/compare) and write a good commit message.
 
 -----
 

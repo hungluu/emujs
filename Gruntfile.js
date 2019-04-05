@@ -1,3 +1,5 @@
+var sass = require('node-sass')
+
 var buildList = function(files){
 	var test = [
 		'msg',
@@ -41,7 +43,8 @@ module.exports = function(grunt) {
 					run: false,
 					urls: buildList(),
 					timeout: 50000,
-					reporter: 'Spec'
+					reporter: 'Spec',
+					growlOnSuccess: false
 				}
 			},
 			dist : {
@@ -49,7 +52,8 @@ module.exports = function(grunt) {
 					run: false,
 					urls: ['http://localhost:8080/test/emu.html'],
 					timeout: 50000,
-					reporter: 'Spec'
+					reporter: 'Spec',
+					growlOnSuccess: false
 				}
 			}
 		},
@@ -146,7 +150,9 @@ module.exports = function(grunt) {
 		sass: {															// Task
 				dist: {														// Target
 					options: {											 // Target options
-						style: 'expanded'
+						style: 'expanded',
+						implementation: sass,
+						sourceMap: true
 					},
 					files: {												 // Dictionary of files
 						'dist/emu.css': 'css/emu.scss'		 // 'destination': 'source'
@@ -161,7 +167,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-mocha');
 	grunt.loadNpmTasks('grunt-includes');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-sass');
 
 	// Task to run tests
 	grunt.registerTask('local', ['connect:local:keepalive']);

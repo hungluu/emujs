@@ -4,12 +4,12 @@
 	"description": "A responsiveness testing tool on browsers",
 	"main": "dist/emu.js",
 	"scripts": {
-		"test" : "grunt test",
-		"build" : "grunt build"
+		"test": "grunt test",
+		"build": "grunt build"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/zudd/emujs.git"
+		"url": "git+https://github.com/hungluu/emujs.git"
 	},
 	"keywords": [
 		"emu",
@@ -28,23 +28,24 @@
 		"responsive",
 		"test"
 	],
-	"author": "Zudd",
+	"author": "Hung Luu <hungluu2106@gmail.com>",
 	"license": "Apache-2.0",
 	"bugs": {
-		"url": "https://github.com/zudd/emujs/issues"
+		"url": "https://github.com/hungluu/emujs/issues"
 	},
-	"homepage": "https://github.com/zudd/emujs#readme",
+	"homepage": "https://github.com/hungluu/emujs#readme",
 	"devDependencies": {
-	    "chai": "^3.4.1",
-	    "grunt": "^0.4.5",
-	    "grunt-contrib-connect": "^0.11.2",
-	    "grunt-contrib-cssmin": "^0.14.0",
-	    "grunt-contrib-jshint": "^0.11.3",
-	    "grunt-contrib-sass": "^0.9.2",
-	    "grunt-includes": "^0.5.1",
-	    "grunt-mocha": "^0.4.15",
-	    "jshint-stylish": "^2.1.0",
-	    "mocha": "^2.3.4",
-	    "request": "^2.67.0"
-	  }
+		"chai": "^4.2.0",
+		"grunt": "^1.0.4",
+		"grunt-contrib-connect": "^2.0.0",
+		"grunt-contrib-cssmin": "^3.0.0",
+		"grunt-contrib-jshint": "^2.1.0",
+		"grunt-includes": "^1.1.0",
+		"grunt-mocha": "^1.2.0",
+		"grunt-sass": "^3.0.2",
+		"jshint-stylish": "^2.2.1",
+		"mocha": "^6.0.2",
+		"node-sass": "^4.11.0",
+		"request": "^2.88.0"
+	}
 }
