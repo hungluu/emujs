@@ -43,7 +43,8 @@ module.exports = function(grunt) {
 					run: false,
 					urls: buildList(),
 					timeout: 50000,
-					reporter: 'Spec'
+					reporter: 'Spec',
+					growlOnSuccess: false
 				}
 			},
 			dist : {
@@ -51,7 +52,8 @@ module.exports = function(grunt) {
 					run: false,
 					urls: ['http://localhost:8080/test/emu.html'],
 					timeout: 50000,
-					reporter: 'Spec'
+					reporter: 'Spec',
+					growlOnSuccess: false
 				}
 			}
 		},
